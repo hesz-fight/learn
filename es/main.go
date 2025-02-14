@@ -9,9 +9,10 @@ import (
 )
 
 type User struct {
-	Name   string `json:"name"`
-	Age    int    `json:"age"`
-	Mrried bool   `json:"married"`
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
+	Address string `json:"address"`
+	Mrried  bool   `json:"married"`
 }
 
 func main() {
@@ -35,9 +36,10 @@ func main() {
 	log.Printf("version:%v code:%v", info.Version.Number, code)
 
 	user := User{
-		Name:   "Xiaoming",
-		Age:    10,
-		Mrried: false,
+		Name:    "li",
+		Age:     20,
+		Address: "beijing",
+		Mrried:  true,
 	}
 	// 7.0 建议移除 _type 统一为 _doc
 	p1, err := cli.Index().Index("user").OpType("create").BodyJson(user).Do(context.Background())
