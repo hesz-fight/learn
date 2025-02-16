@@ -6,11 +6,11 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-var target int
+var tag int
 var ans [][]int
 
 func pathSum(root *TreeNode, target int) [][]int {
-	target = target
+	tag = target
 	ans = make([][]int, 0, 64)
 	backRecur(root, []int{}, 0)
 
@@ -25,7 +25,7 @@ func backRecur(root *TreeNode, path []int, pathSum int) {
 	path = append(path, root.Val)
 	if root.Left == nil &&
 		root.Right == nil &&
-		pathSum == target {
+		pathSum == tag {
 		ans = append(ans, append([]int{}, path...))
 	}
 	backRecur(root.Left, path, pathSum)
