@@ -14,11 +14,11 @@ type KafkaSyncProducer struct {
 
 func NewSyncProducer(addrs []string, topic string, config *sarama.Config) (*KafkaSyncProducer, error) {
 	if config == nil {
-		defaultConfig := sarama.NewConfig()
-		defaultConfig.Producer.RequiredAcks = sarama.WaitForAll
-		defaultConfig.Producer.Partitioner = sarama.NewRandomPartitioner
-		defaultConfig.Producer.Return.Successes = true
-		config = defaultConfig
+		config = sarama.NewConfig()
+		config.Producer.RequiredAcks = sarama.WaitForAll
+		config.Producer.Partitioner = sarama.NewRandomPartitioner
+		config.Producer.Return.Successes = true
+		config.Producer.Return.Errors = true
 	}
 	p, err := sarama.NewSyncProducer(addrs, config)
 	if err != nil {
