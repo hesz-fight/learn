@@ -6,11 +6,11 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-var ck int
+var k0 int
 var ans *int
 
 func kthlargestnode(root *TreeNode, k int) int {
-	ck = k
+	k0 = k
 	cnt := 0
 	helper(root, &cnt)
 	return *ans
@@ -26,7 +26,7 @@ func helper(root *TreeNode, cnt *int) {
 		return
 	}
 	*cnt++
-	if *cnt == ck {
+	if *cnt == k0 {
 		ans = &root.Val
 		return
 	}

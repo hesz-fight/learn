@@ -12,11 +12,10 @@ func recur(in []int, i int, j int) bool {
 
 	// 左子树和右子树的边界
 	p := i
-	for in[i] < in[j] {
+	for in[p] < in[j] {
 		p++
 	}
 
-	//
 	q := p
 	for in[q] > in[j] {
 		q++
