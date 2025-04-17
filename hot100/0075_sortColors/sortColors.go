@@ -22,7 +22,6 @@ func sortColors(nums []int) {
 func sortColors2(nums []int) {
 	p0 := 0
 	p1 := 0
-	// 通过i和p2控制循环
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
 			nums[i], nums[p0] = nums[p0], nums[i]
