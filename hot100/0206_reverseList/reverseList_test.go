@@ -34,3 +34,33 @@ func Test_reverseList(t *testing.T) {
 		})
 	}
 }
+
+func Test_revert(t *testing.T) {
+	type args struct {
+		head *ListNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		{
+			name: "test",
+			args: args{
+				head: &ListNode{
+					Val: 1,
+					Next: &ListNode{
+						Val: 2,
+					},
+				},
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := revert(tt.args.head); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("revert() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
