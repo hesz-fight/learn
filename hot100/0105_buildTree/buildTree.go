@@ -31,5 +31,5 @@ func helper(preorder []int, inorder []int) *TreeNode {
 }
 
 func getIndxOfInorder(val int) int {
-	return 0
+	return mp[val]
 }
